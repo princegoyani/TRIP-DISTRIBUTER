@@ -1,0 +1,317 @@
+#navigation{
+    
+    background-color: darksalmon;
+    padding: 10px;
+    border: 2px solid grey;
+    border-radius: 10px;
+}
+
+#navigation h2{
+    color: whitesmoke;
+    font-size: 30px;
+    font-family: 'Courier New', Courier, monospace;
+    margin-left: 20px;
+    
+}
+
+#navigation a{
+    text-decoration: none;
+    color:darkolivegreen;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    margin: 10px;
+}
+
+#navigation a:hover{
+    color: white;
+}
+
+
+#notifications{
+    
+    margin: 10px;
+
+}
+
+.section h3{
+    color: grey;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+    margin-left: 20px;
+}
+#notification{
+
+    position: relative;
+    width: max-content;
+    padding: 20px;
+    border: 2px solid darksalmon ;
+    border-radius: 10px;
+    margin: 5px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+    
+}
+
+#notification p{
+    margin: 2px;
+    margin-top: 8px;
+    color: darksalmon;
+}
+
+#notification #accept{
+    color: green;
+    border: 2px solid green;
+    border-radius: 2px;
+    background-color: wheat;
+}
+
+#notification #reject{
+    color: red;
+    border: 2px solid red;
+    border-radius: 2px;
+    background-color: wheat;
+}
+
+
+
+#notify_block{
+    display: flex;
+}
+
+.trip_list{
+    list-style-type: none;
+}
+
+.trip_list li{
+    border: 2px solid darksalmon;
+    border-radius: 3px;
+    margin: 10px;
+    padding: 12px;
+    font-size: 14px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.trip_list li a{
+    font-size: 18px;
+    color:darkslategrey;
+    margin-right: 10px;
+    
+}
+
+#form_add_trip {
+    margin: 30px;
+    margin-left: 20px;
+}
+
+#form_add_trip #trip_name{
+    width: 300px;
+    height: 30px;
+    font-size: 30px;
+    padding: 20px;
+    border:3px solid grey;  
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#form_add_trip #start_trip{
+    font-size: 15px;
+    font-family: 'Courier New', Courier, monospace;
+    color: cadetblue;
+    border: 2px solid cadetblue;
+    background-color: wheat;
+    margin-left: 20px;
+}
+
+#add_user{
+    margin: 20px;
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+
+#add_user h4{
+    color: grey;
+    margin: 0px;
+    margin-bottom: 10px;
+}
+
+#add_user #alert{
+    display: none;
+    margin: 10px;
+    background-color: grey;
+    color: rgb(189, 11, 11);
+    padding: 10px;
+}
+#add_user #user_toadd{
+    font-size: 20px;
+    color: salmon;
+    padding: 10px;
+}
+
+#add_user #add_user_submit , #login_submit , #submit_register{
+    color: salmon;
+    border: 3px solid salmon;
+    background-color: wheat;
+    font-size: 15px;
+    margin-left: 15px;
+}
+#add_user #add_user_submit:hover , #form_add_trip #start_trip:hover {
+    background-color: white;
+
+}
+
+#user_tobeadded {
+    margin: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    
+}
+
+#user_tobeadded h3{
+    color: grey;
+    margin-bottom: 0px;
+}
+#user_tobeadded p{
+    color: grey;
+    font-size: 10px;
+}
+
+#user_tobeadded #user_list li {
+    font-size: 15px;
+    color: olivedrab;
+}
+#user_tobeadded #user_list li #remove_user{
+    color: orange;
+    border: 2px solid orange;
+    background-color: red;
+
+}
+#trip_detail{
+    font-size: 14px;
+    color: grey;
+    margin-left: 20px;
+}
+
+#trip_detail #trip_name{
+    font-size: 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: rgb(46, 46, 46);
+    margin: 10px;
+    margin-top: 20px;
+}
+
+#trip_detail #trip_host{
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.end_trip{
+    position: relative;
+    margin: 0px;
+    border: 3px solid red;
+    border-radius: 5px;
+    background-color: wheat;
+    color: red;
+    margin-left: 5px;
+}
+
+.end_trip:hover{
+    background-color: red;
+    color: whitesmoke;
+}
+
+h3 {
+    margin: 0px;
+    margin-top: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 15px;
+}
+
+#add_spending{
+    margin: 20px;
+    border: 5px solid coral;
+    border-radius: 10px;
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    width: max-content;
+}
+
+#add_spending h3{
+    font-size: 20px;
+    color: rgb(66, 66, 66);
+    margin-bottom: 10px;
+}
+
+#form_spend #spend_descriptions ,#form_spend #spend_amount{
+    font-size: 20px;
+    padding: 5px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+#form_spend #submit_spend{
+    border: 3px solid darkolivegreen;
+    border-radius: 5px;
+    color: darkolivegreen;
+    background-color: wheat;
+    font-size: 15px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+
+}
+#users_spendings{
+    margin: 20px;
+}
+#users_spendings h3{
+    color: grey;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+    margin-bottom:10px ;
+}
+
+#users_spendings table{
+    font-size: 20px;
+}
+
+
+#users_spendings table ,#users_spendings tr  {
+    border: 3px solid coral;
+    border-collapse: collapse;
+
+
+}
+
+#users_spendings td, #users_spendings th{
+    padding: 20px;
+
+}
+
+#spending h3{
+    color: grey;
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-left: 10px;
+}
+
+#spending {
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#spending li{
+    margin-top: 10px;
+    color: rgb(73, 69, 69);
+}
+
+#spending li #remove_spend {
+    border: 3px solid red;
+    color: red;
+    background-color: wheat;
+}
+
+#spending li #remove_spend:hover{
+    background-color: red;
+    color: wheat;
+}
+
+.form_login input{
+    font-size: 20px; 
+    padding: 5px; 
+    margin-left: 20px;
+    margin-top: 10px;
+}

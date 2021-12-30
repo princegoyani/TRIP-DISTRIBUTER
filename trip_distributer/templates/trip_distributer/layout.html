@@ -1,0 +1,28 @@
+{% load static %}
+<html>
+    <head>
+        <title>Trip Distributer</title>
+        <link href="{% static 'trip_distributer/style.css' %}" rel="stylesheet">
+        <script src="{% static 'trip_distributer/index.js' %}"> </script>
+    </head>
+    <body>
+        <p class="p1"><span class="s1">{% load static %} {% block script %} {% endblock %}</span></p>
+        <div id="navigation">
+            <h2> TRIP DISTRIBUTOR </h2><br>
+            {% if request.user.is_authenticated %}
+            <div id="options">
+                <a href="{% url 'index' request.user %}">HOME</a>
+                <a href="{% url 'addtrip' %}">ADD TRIP</a>
+                <a href="{% url 'logout' %}">LOGOUT</a>
+                <p style="color: rgb(58, 56, 56); display: block; position: relative; float: right; margin-top: -2px; font-size: 20px;"> {{ request.user }} </p>
+            </div>
+            {% endif %}
+        </div>
+        
+        {% block body %}
+        
+        {% endblock %}
+
+
+    </body>
+</html>

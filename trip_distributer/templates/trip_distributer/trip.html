@@ -1,0 +1,87 @@
+{% extends "trip_distributer/layout.html" %}
+{% load static %}
+{% block body %}
+<div id="trip_detail">
+<h2 id="trip_name"> Trip: {{ trip.trip_name }}</h2>
+<H2 id="trip_host"> Host: <a style="color: black;"> {{ trip.user_tohost.first_name.capitalize }} {{ trip.user_tohost.last_name.capitalize }} ({{ trip.user_tohost }})</a></H2>
+
+<h4 style="margin: 0px; font-size: 20px;">User join trip: </h4>
+<ul style="margin: 0px; font-size: 18px; ">
+    {% for user in trip.user_ontrip.all %}
+        <li style="color: rgb(15, 15, 15); margin-top: 5px;">
+        {{ user.first_name.capitalize }} {{ user.last_name.capitalize }} ({{ user.username }})
+        </li>
+    {% endfor %}
+</ul>
+
+<h3>TRIP STATUS :<a style="color: black;"> {{ trip.status.capitalize }}</a> {% if request.user == trip.user_tohost and trip.status == "current" %} <button id="end_trip" class="end_trip" onclick="return endtrip(event , '{{ trip.id }}') ">ENDTRIP</button>{% endif %} {% if trip.status == "end" %}<button id="delete_trip" class="end_trip" onclick="return delete_trip(event , '{{trip.id}}')">Delete Trip</button>{% endif %}</h3>
+<h3>START DATE : {{ trip.start_date|date:'Y-m-d D' }}</h3>
+<h3>END DATE : -- {{ trip.end_date|date:'Y-m-d D' }}</h3>
+
+</div>
+{% if trip.status == "current" %}
+<div id="add_spending">
+    <h3>Add Your Spendings :</h3>
+    <form id="form_spend" onsubmit=" return add_spend_(event , '{{ trip.id }}') ">
+        <input type="text" id="spend_descriptions" placeholder="WHERE SPEND ? " required><br>
+        <input type="number" id="spend_amount" placeholder="Spended ?" required><br>
+        <input type="submit" id="submit_spend">
+    </form>
+    
+</div>
+
+{% endif %}
+
+<div id="users_spendings">
+    <h3>Spending per User: </h3>
+    <table>
+        <tr>
+            <th>
+                USER
+            </th>
+            <th>
+                SPENDS
+            </th>
+            <th>
+                Distrubted
+            </th>
+        </tr>
+
+        {% for user ,spend in users_spend.items %}
+        <tr>
+            <td>
+                {{user}}
+            </td>
+            <td> 
+                ${{ spend.0 }}
+            </td>
+            <td>
+                ${{ spend.1  }}
+            </td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td>Total</td>
+            <td>${{ total_spend}}</td>
+            <td></td>
+        </tr>
+    </table>
+    
+</div> 
+
+
+<div id = "spending">
+    <h3>Spending History :</h3>
+    <ul id="spend_history">
+
+        {% for spending in trip.trip_spend.all|dictsortreversed:"date_time" %}
+        <li> {{ spending.user.first_name.capitalize }} ({{spending.user }}) had spend $ {{ spending.spend }} at "{{ spending.description }}"  --- {{ spending.date_time|date:'Y-m-d D H:i:s' }} {% if trip.status == "current" %} {% if  request.user == spending.user or request.user == trip.user_tohost %} <button id="remove_spend" onclick=" return remove_spend(event , '{{ spending.id }}' )">REMOVE</button> {% endif %}{% endif %}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
+
+
+{% block script %}
+    <script src="{% static 'trip_distributer/trip.js' %}"></script>
+{% endblock %}

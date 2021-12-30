@@ -1,0 +1,50 @@
+{% extends "trip_distributer/layout.html" %}
+{% load static %}
+{% block body %}
+<div id="notifications" class="section">
+    <h3>NOTIFICATIONS</h3>
+    <div id="notify_block">
+        {% if notifications %}
+        {% for notification in notifications %}
+        <div id="notification" class="section"> 
+            <a id="title_name" >TRIP : {{ notification.trip_name.capitalize }}</a>
+            <a id="host_user"> , By: {{ notification.user_tohost.first_name.capitalize }} ({{ notification.user_tohost }})</a>
+            <p>Want to Join :</p>
+            <button id="accept" onclick="return trip_response(event , '{{ notification.id }}' )">ACCEPT</button>
+            <button id="reject"  onclick="return trip_response(event , '{{ notification.id }}' )" >REJECT</button>
+        </div>
+        {% endfor %}
+        {% else %}
+        <h3 style="margin-left: 20px; color: rgb(63, 63, 63); font-size: 15px;">Empty</h3>
+        {% endif %}
+    </div>
+</div>
+
+
+
+<div id="current_trip" class="section">
+    <h3>Current Trip</h3>
+    <ul id="list_current_trip" class="trip_list">
+    {% for trip in current_trips %}
+    <li id="trip_name"><a href="{% url 'view_trip' trip.id %}">{{ trip.trip_name.capitalize }}</a> Start Date: {{ trip.start_date|date:'Y-m-d D' }}</li>
+    {% endfor %}
+</ul>
+</div>
+ 
+
+<div id="History_trip" class="section">
+    <h3>History Trip</h3>
+    
+    <ul id="list_completed_trip" class="trip_list">
+    {% for trip in completed_trips %}
+    <li><a href="{% url 'view_trip' trip.id %}">{{ trip.trip_name.capitalize }}</a> Start Date: {{ trip.start_date|date:'Y-m-d D' }} , End Date: {{ trip.end_date|date:'Y-m-d D' }} {{ trip.total_spend }}</li>
+    {% endfor %}
+    </ul>
+</div>
+
+
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'trip_distributer/index.js' %}"></script>
+{% endblock %}

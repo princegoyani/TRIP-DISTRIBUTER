@@ -1,0 +1,31 @@
+{% extends "trip_distributer/layout.html" %}
+{% load static %}
+{% block body %}
+
+<form id="form_add_trip" action="{% url 'index' request.user %}">
+    <input type="text" placeholder="Trip Name" id="trip_name" required>
+    <input type="submit" id="start_trip" value="LET'S GO !!">
+</form>
+
+
+<form id="add_user">
+    <h4>Ask User to Join : </h4>
+    <h3 id="alert"></h3>
+    <input placeholder=" Username " type="text" id="user_toadd">
+    <input type="submit" id="add_user_submit" value="ADD">
+</form>
+
+
+<div id="user_tobeadded">
+    <h3>USER TO SENT REQUEST :</h3>
+    <p>(It will sent request when you press "LET's GO" button )</p>
+    <ul id="user_list">
+        
+    </ul>
+</div>
+
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'trip_distributer/add_trip.js' %}"></script>
+{% endblock %}

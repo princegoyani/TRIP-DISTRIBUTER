@@ -1,0 +1,24 @@
+{% extends "trip_distributer/layout.html" %}
+
+{% block body %}
+
+   <div class="section" > <h3 style="font-size: 30px; margin: 20px;" >Login</h3></div>
+
+    {% if message %}
+        <div style="color: red; font-size: 20px;">{{ message }}</div>
+    {% endif %}
+
+    <form action="{% url 'login' %}" method="post" class="form_login">
+        {% csrf_token %}
+        <div >
+            <input autofocus  type="text" name="username" placeholder="Username">
+        </div>
+        <div>
+            <input type="password" name="password" placeholder="Password">
+        </div>
+        <input type="submit" value="Login" id="login_submit" style="margin-left: 20px;">
+    </form>
+
+    <div style="color: rgb(42, 42, 42); margin-left: 20px;"> Don't have an account? <a href="{% url 'register' %}">Register here.</a></div>
+
+{% endblock %}
